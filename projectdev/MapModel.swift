@@ -25,7 +25,7 @@ struct Location: Identifiable {
     let coordinate: CLLocationCoordinate2D
 }
 
-class MapAPI: ObservableObject{
+class MapAPI: ObservableObject {
    private let BASE_URL = "http://api.positionstack.com/v1/forward"
    private let API_KEY = "92d0989cebd26dea67f59db3a280d7a6"
    
