@@ -71,11 +71,11 @@ class MapAPI: ObservableObject {
             self.coordinates = [lat, lon]
             self.region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: lat, longitude: lon), span: MKCoordinateSpan(latitudeDelta: delta, longitudeDelta: delta))
             
-            let new_location = Location(name: "\(details.name)", coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
+             let new_location = Location(name: "\(String(describing: details.name))", coordinate: CLLocationCoordinate2D(latitude: lat, longitude: lon))
             self.locations.removeAll()
             self.locations.insert(new_location, at: 0)
             
-            print("Successfully loaded location! \(details.name)")
+             print("Successfully loaded location! \(String(describing: details.name))")
          }
       }
       .resume()
