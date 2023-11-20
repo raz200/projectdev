@@ -21,11 +21,21 @@ struct ContentView: View {
          Button("search for a place") {
             mapAPI.getLocation(address: text, delta: 0.5)
          }
+          
+          // Added geometryreader to contain the map to half of its size
+          
+          GeometryReader { geometry in
+              Map(coordinateRegion: $mapAPI.region, annotationItems: mapAPI.locations) { location in
+                  MapMarker(coordinate: location.coordinate, tint: .blue)
+              }
+              .frame(height: geometry.size.height / 2)
+              .ignoresSafeArea()
+          }
          
-         Map(coordinateRegion: $mapAPI.region, annotationItems: mapAPI.locations) { location in
+         /*Map(coordinateRegion: $mapAPI.region, annotationItems: mapAPI.locations) { location in
             MapMarker(coordinate: location.coordinate, tint: .blue)
          }
-         .ignoresSafeArea()
+         .ignoresSafeArea()*/
       }
    }
 }
